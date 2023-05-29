@@ -1,4 +1,4 @@
-﻿using HotelBookingSystem.Models;
+using HotelBookingSystem.Models;
 
 namespace HotelBookingSystem.Repository
 {
@@ -8,7 +8,7 @@ namespace HotelBookingSystem.Repository
 
         public IEnumerable<Hotel> GetHotelsByFilter(string? location, decimal? minPrice, decimal? maxPrice);
 
-
+        IEnumerable<Hotel> GetHotelsByLocation(string location);
 
 
     }
