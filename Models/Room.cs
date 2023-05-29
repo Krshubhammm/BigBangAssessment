@@ -18,5 +18,6 @@ namespace HotelBookingSystem.Models
         // Define a reference to the hotel that owns the room
 
         public Hotel? Hotel { get; set; }
+         public ICollection<Reservation>? Reservations { get; set; }
     }
 }
