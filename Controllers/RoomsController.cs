@@ -1,4 +1,4 @@
-﻿using HotelBookingSystem.Models;
+using HotelBookingSystem.Models;
 using HotelBookingSystem.Repository;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -29,7 +29,7 @@ namespace HotelBookingSystem.Controllers
             try
             {
                 // Retrieve all rooms from the database
-                var rooms = await _context.Rooms.ToListAsync();
+                var rooms = await _context.Rooms.Include(r => r.Reservations).ToListAsync();
                 return Ok(rooms);
             }
             catch (Exception ex)
