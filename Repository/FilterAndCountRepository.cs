@@ -1,7 +1,8 @@
-﻿using HotelBookingSystem.Models;
+using HotelBookingSystem.Models;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
+using System;
 
 namespace HotelBookingSystem.Repository
 {
@@ -52,6 +53,20 @@ namespace HotelBookingSystem.Repository
                 throw; // Re-throw the exception to be handled at the higher level
             }
         }
+            public IEnumerable<Hotel> GetHotelsByLocation(string location)
+            {
+                try
+                {
+                    var hotels = _context.Set<Hotel>().Where(h => h.Location == location).ToList();
+                    return hotels;
+                }
+                catch (Exception ex)
+                {
+                    // Handle and log the exception
+                    Console.WriteLine("Error retrieving hotels by location: " + ex.Message);
+                    throw; // Re-throw the exception to be handled at the higher level
+                }
+            }
+        }
 
     }
-}
